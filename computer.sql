@@ -1,0 +1,19 @@
+CREATE DATABASE computer;
+USE computer;
+
+CREATE TABLE OSystem (
+    Id CHAR(36) PRIMARY KEY,
+    Name VARCHAR(50) NOT NULL,
+    CreatedTime DATETIME
+);
+
+CREATE TABLE Comp (
+    Id CHAR(36) PRIMARY KEY,
+    Brand VARCHAR(37) NOT NULL,
+    Type VARCHAR(30) NOT NULL,
+    Display DOUBLE NOT NULL,
+    Memory INT NOT NULL,
+    CreatedTime DATETIME,
+    OsId CHAR(36),
+    FOREIGN KEY (OsId) REFERENCES OSystem(Id) ON DELETE SET NULL
+);
