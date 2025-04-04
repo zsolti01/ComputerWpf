@@ -30,7 +30,7 @@ namespace ComputerWpf
 
         //private const string ConnectionString = "Server=localhost;Database=computer;Uid=root;Password=;SslMode=None";
 
-        private void Szmito_Lekérdezés()
+        private void OPRendszer_Lekérdezés()
         {
             string connectionString = "Server=localhost;Database=computer;Uid=root;Password=;SslMode=None";
 
@@ -47,7 +47,7 @@ namespace ComputerWpf
 
                     while (dr.Read())
                     {
-                        sqlListBox.Items.Add(dr["id"].ToString() + ".: " + dr["name"].ToString());
+                        sqlListBox.Items.Add(dr["id"].ToString() + ".: " + dr["name"].ToString() + ", " + dr["CreatedTime"].ToString());
                     }
 
                     connection.Close();
@@ -59,7 +59,7 @@ namespace ComputerWpf
             }
         }
 
-        private void OPR_Lekérdezés()
+        private void Comp_Lekérdezés()
         {
             string connectionString = "Server=localhost;Database=computer;Uid=root;Password=;SslMode=None";
 
@@ -76,7 +76,7 @@ namespace ComputerWpf
 
                     while (dr.Read())
                     {
-                        sqlListBox.Items.Add(dr["type"].ToString());
+                        sqlListBox.Items.Add(dr["id"].ToString() + ".: " + dr["Brand"].ToString() + ", " + dr["Type"].ToString() + ", " + dr["Display"].ToString() + ", " + dr["Memory"].ToString() + ", " + dr["CreatedTime"].ToString() + ", " + dr["OsId"].ToString());
                     }
 
                     connection.Close();
@@ -91,14 +91,14 @@ namespace ComputerWpf
         private void Comp_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Számítógépek");
-            Szmito_Lekérdezés();
+            Comp_Lekérdezés();
 
         }
 
         private void OPS_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("OPrendszerek");
-            OPR_Lekérdezés();
+            OPRendszer_Lekérdezés();
         }
 
         private void Kilepes_Click(object sender, RoutedEventArgs e)
